@@ -1,0 +1,11 @@
+services:
+  immich-frame-sync:
+    build: .
+    image: immich-frame-sync:latest
+    container_name: immich-frame-sync
+    env_file: .env
+    # Unraid default is nobody:users (99:100); make sure CACHE_DIR is writable by this user.
+    user: "${PUID:-99}:${PGID:-100}"
+    volumes:
+      - ${CACHE_DIR:-/mnt/user/appdata/immich-frame-sync}:/cache
+    restart: unless-stopped

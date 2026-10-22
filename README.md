@@ -9,7 +9,7 @@ Slideshow (`sk.mimac.slideshow`). Every new photo goes through these steps:
 4. It's saved as a JPEG and uploaded to the frame with a WebDAV `PUT`.
 
 ## Setup on Unraid
-
+Paste the following in your unRaid Terminal
 ```sh
 git clone https://github.com/jerbanpls/immich-frame-sync.git
 cd immich-frame-sync
@@ -22,7 +22,7 @@ docker logs -f immich-frame-sync
 
 On the frame, open Slideshow → Settings → Web server. Enable it and set a username and password.
 
-## Behaviour
+## Behavior
 
 - **Only new photos are processed.** `/cache/state.json` records every asset ID already handled.
 - **Frame offline:** the processed JPEG stays in `/cache/processed/`, and the upload is retried each cycle without downloading the photo again.
